@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Competition Server</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="spacer">
+        <a href="/">Home</a>
+        <a href="/scores">Leaderboard</a>
+        <a href="/questions">Questions</a>
+      </div>
+    </header>
+    <main>
+      <table class="masthead">
+        <tr>
+          <td width="200px">
+            <img width="200px" src="/res/monolyth.svg" alt="" />
+          </td>
+          <td>
+            <h1>Leaderboard</h1>
+            <h3 id="leaderboardScore">Only 14:24 Minutes Left...</h3>
+          </td>
+        </tr>
+      </table>
+      <div class="leaderboard" id="leaderboard"></div>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>

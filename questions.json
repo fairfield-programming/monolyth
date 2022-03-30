@@ -1,0 +1,10 @@
+[
+  {
+    "title": "FizzBuzz",
+    "points": 140,
+    "time": 1.4,
+    "introduction": "The most classic interview programming question: FizzBuzz. It's fairly straightforward, but surprisingly tough for even the most well-versed programmers. The challenge is simple: output all integers from 1 to 100 (inclusive), each on a new line. However, if the number is evenly divisible by 3, output \"Fizz\" instead of that number; if it's divisible by 5, output \"Buzz\"; if it's divisible by 3 and 5, output \"FizzBuzz.\" (Note: it's important that your outputs follow PascalCase, where the first letter of each compound word is capitalized; so not \"fizzbuzz,\" but \"FizzBuzz\".)",
+    "emoji": "🍹🐝",
+    "difficulty": "Easy"
+  }
+]

@@ -1,0 +1,185 @@
+html {
+  font-family: sans-serif;
+}
+
+header {
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  background: #fff;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  z-index: 90;
+}
+
+header .spacer {
+  max-width: 1000px;
+  margin: 0px auto;
+}
+
+header .spacer a {
+  display: inline-block;
+  padding: 15px;
+  text-decoration: none;
+  font-weight: 300;
+  color: #333;
+  background: #ffffff;
+}
+
+header .spacer a:hover {
+  background: #f5f5f5;
+}
+
+main {
+  max-width: 800px;
+  margin: 0px auto;
+  margin-top: 80px;
+}
+
+main .masthead {
+  width: 100%;
+  height: 160px;
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  padding: 0px 20px;
+}
+
+main p {
+  font-weight: 100;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+main .questions {
+  padding: 10px;
+}
+
+main .questions .question {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 30px 40px;
+  margin: 15px;
+  position: relative;
+  padding-top: 40px;
+  -webkit-transition: padding-bottom 0.2s;
+  transition: padding-bottom 0.2s;
+  overflow: hidden;
+}
+
+main .questions .question:hover {
+  cursor: pointer;
+  padding-bottom: 80px;
+}
+
+main .questions .question:hover .hidden {
+  opacity: 1;
+}
+
+main .questions .question:hover .rating {
+  font-size: 18px;
+}
+
+main .questions .question h2 {
+  margin: 10px;
+  font-weight: 100;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+main .questions .question p {
+  margin: 0px;
+}
+
+main .questions .question .rating {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  letter-spacing: 10px;
+  font-size: 22px;
+  -webkit-transition: font-size 0.1s;
+  transition: font-size 0.1s;
+}
+
+main .questions .question .hidden {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  height: 50px;
+  border: none;
+  border-top: 1px solid #ddd;
+  opacity: 0;
+  background: #fff;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main .questions .question .hidden .section {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: none;
+  border-left: 1px solid #ddd;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #aaa;
+  font-size: 14px;
+  -webkit-transition: font-size 0.2s;
+  transition: font-size 0.2s;
+}
+
+main .questions .question .hidden .section:first-child {
+  border-left: none;
+}
+
+main .questions .question .hidden .section:hover {
+  font-size: 16px;
+}
+
+main .leaderboard {
+  padding: 10px;
+}
+
+main .leaderboard .leaderboardItem {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 30px 0px;
+  margin: 15px;
+  position: relative;
+}
+
+main .leaderboard .leaderboardItem .leaderboardIcon {
+  position: absolute;
+  width: 40px;
+  right: 10px;
+  top: 10px;
+}
+
+main .leaderboard .leaderboardItem h2 {
+  font-weight: 600;
+  padding: 0px 30px;
+  margin: 0px;
+  text-transform: uppercase;
+}
+
+main .leaderboard .leaderboardItem h3 {
+  font-weight: 300;
+  padding: 0px 30px;
+  margin: 0px;
+}
+/*# sourceMappingURL=style.css.map */
