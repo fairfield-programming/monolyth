@@ -1,10 +1,14 @@
 [
   {
     "title": "FizzBuzz",
-    "points": 140,
-    "time": 1.4,
+    "points": 240,
     "introduction": "The most classic interview programming question: FizzBuzz. It's fairly straightforward, but surprisingly tough for even the most well-versed programmers. The challenge is simple: output all integers from 1 to 100 (inclusive), each on a new line. However, if the number is evenly divisible by 3, output \"Fizz\" instead of that number; if it's divisible by 5, output \"Buzz\"; if it's divisible by 3 and 5, output \"FizzBuzz.\" (Note: it's important that your outputs follow PascalCase, where the first letter of each compound word is capitalized; so not \"fizzbuzz,\" but \"FizzBuzz\".)",
-    "emoji": "🍹🐝",
-    "difficulty": "Easy"
+    "emoji": "🍹🐝"
+  },
+  {
+    "title": "Rock Paper Scissors",
+    "points": 340,
+    "introduction": "You’re tasked with deciding the winners in a rock-paper-scissors tournament. The first line of each input file will have a number to denote the number of test cases/games. In each line, there will be two letters separated by a space; the letters will either be “R”, “P”, or “S” which represents rock, paper, and scissors respectively. The games follow the normal rules of rock-paper-scissors: rock beats scissors but loses to paper, paper beats rock but loses to scissors, and scissors beats paper but loses to rock. For each game, output the letter that wins the game, or if the game is a tie, output the letter of the tie. (Note: your outputs should be uppercase.)",
+    "emoji": "🗿📄✂"
   }
 ]

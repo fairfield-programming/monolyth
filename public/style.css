@@ -37,6 +37,7 @@ main {
   max-width: 800px;
   margin: 0px auto;
   margin-top: 80px;
+  padding: 0px 25px;
 }
 
 main .masthead {
@@ -46,6 +47,21 @@ main .masthead {
   border-radius: 10px;
   border: 1px solid #ddd;
   padding: 0px 20px;
+}
+
+main .masthead .largeIcon {
+  width: 200px;
+  height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 108px;
 }
 
 main p {
@@ -68,6 +84,9 @@ main .questions .question {
   -webkit-transition: padding-bottom 0.2s;
   transition: padding-bottom 0.2s;
   overflow: hidden;
+  display: block;
+  color: #333;
+  text-decoration: none;
 }
 
 main .questions .question:hover {

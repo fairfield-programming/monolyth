@@ -25,9 +25,9 @@ fetch('/api/question').then(response => response.json()).then((data) => {
 
     updateDescription(count);
 
-    data.forEach((item) => {
+    data.forEach((item, i) => {
 
-        addQuestion(item, questions);
+        addQuestion({ id: i, ...item }, questions);
 
     });
 
@@ -35,7 +35,7 @@ fetch('/api/question').then(response => response.json()).then((data) => {
 
 function addQuestion(data, parent) {
 
-    const container = document.createElement("div");
+    const container = document.createElement("a");
     const emoji = document.createElement("p");
     const title = document.createElement("h2");
     const description = document.createElement("p");
@@ -45,6 +45,8 @@ function addQuestion(data, parent) {
     const childB = document.createElement("div");
     const childC = document.createElement("div");
     
+    container.href = "/question/?id=" + data.id;
+
     container.classList.add('question');
     emoji.classList.add('rating');
     hidden.classList.add('hidden');
@@ -59,7 +61,7 @@ function addQuestion(data, parent) {
 
     childA.innerHTML = `${data.points || 0} Points`;
     childB.innerHTML = `${data.difficulty || "Easy"}`;
-    childC.innerHTML = `~${data.time || 2} Minutes`;
+    childC.innerHTML = `${data.submissions || 0} Submissions`;
 
     hidden.append(childA);
     hidden.append(childB);

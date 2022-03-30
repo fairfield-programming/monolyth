@@ -44,7 +44,19 @@ app.use(express.static('public'))
 
 app.get('/api/question', (req, res) => {
 
-    res.json(questions);
+    let output = [];
+
+    questions.forEach((item) => {
+
+        output.push(
+            preprocessQuestionResponse(
+                item
+            )
+        );
+
+    })
+
+    res.json(output);
 
 });
 
@@ -93,3 +105,29 @@ app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
     
 });
+
+function preprocessQuestionResponse(questionData) {
+
+    let difficulty = "EASY";
+    let points = questionData.points || 0;
+    let title = questionData.title || "Untitled";
+    let emoji = questionData.emoji || "";
+    let introduction = questionData.introduction;
+
+    if (points > 260) difficulty = "NOVICE";
+    if (points > 350) difficulty = "MEDIUM";
+    if (points > 420) difficulty = "LIL SPICY";
+    if (points > 540) difficulty = "DIFFICULT";
+    if (points > 640) difficulty = "HARD";
+    if (points > 740) difficulty = "EXPERT";
+    if (points > 840) difficulty = "GENIUS LEVEL";
+
+    return {
+        difficulty,
+        points,
+        title,
+        emoji,
+        introduction
+    };
+
+}
