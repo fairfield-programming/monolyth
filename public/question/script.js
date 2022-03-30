@@ -6,6 +6,8 @@ const body = document.getElementById('body');
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
 
+if (id == null || id == undefined) window.location.href = "/questions";
+
 fetch(`/api/question/${id}`).then((response) => {
 
     // check not 404
