@@ -3,6 +3,32 @@ const title = document.getElementById('title');
 const description = document.getElementById('description');
 const body = document.getElementById('body');
 
+const languages = document.getElementById('languages');
+
+var editor = ace.edit("editor");
+editor.setTheme("ace/theme/monokai");
+
+languages.onchange = () => {
+
+    editor.getSession().setMode("ace/mode/" + languages.value);
+
+};
+
+fetch('https://emkc.org/api/v2/piston/runtimes').then(response => response.json()).then((data) => {
+
+    data.forEach(element => {
+        
+        const option = document.createElement('option');
+
+        option.innerHTML = element.language;
+        option.value = element.language;
+
+        languages.append(option);
+
+    });
+
+});
+
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
 

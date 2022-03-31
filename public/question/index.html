@@ -31,8 +31,27 @@
           </td>
         </tr>
       </table>
-      <div id="body"></div>
+      <div class="body" id="body"></div>
+      <div class="spacer"></div>
+      <div class="select-area">
+        <p class="warning">
+          please save your code elsewhere before leaving this page. it will not
+          be saved.
+        </p>
+        <select id="languages"></select>
+      </div>
+      <div id="editor"></div>
+      <div class="submission-area">
+        <button class="secondary">Run + Test</button>
+        <button class="primary">Submit</button>
+      </div>
+      <div class="spacer"></div>
     </main>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
     <script src="./script.js"></script>
   </body>
 </html>

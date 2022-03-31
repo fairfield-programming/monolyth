@@ -1,3 +1,8 @@
+@charset "UTF-8";
+* {
+  outline: none;
+}
+
 html {
   font-family: sans-serif;
 }
@@ -62,6 +67,79 @@ main .masthead .largeIcon {
       -ms-flex-pack: center;
           justify-content: center;
   font-size: 108px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+main .spacer {
+  width: 100%;
+  height: 80px;
+}
+
+main #editor {
+  width: 100%;
+  height: 400px;
+  border-radius: 5px;
+}
+
+main .body h2 {
+  font-weight: 300;
+  font-size: 32px;
+  margin: 0px;
+  margin-top: 44px;
+  position: relative;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+
+main .select-area {
+  width: 100%;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+main .select-area p {
+  justify-self: flex-start;
+  width: 100%;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 300;
+  color: #aaa;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+main .select-area select {
+  height: 30px;
+  width: 160px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  position: relative;
+  font-family: monospace;
+  text-transform: capitalize;
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-size: contain;
+  -webkit-filter: grayscale(100%) contrast(120%);
+          filter: grayscale(100%) contrast(120%);
+  background-image: url("data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%22-20 0 100 100%22><text y=%221.25em%22 font-size=%2255%22>💾</text></svg>");
 }
 
 main p {
@@ -200,5 +278,56 @@ main .leaderboard .leaderboardItem h3 {
   font-weight: 300;
   padding: 0px 30px;
   margin: 0px;
+}
+
+main .submission-area {
+  width: 100%;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+main .submission-area button {
+  margin: 5px;
+  height: 30px;
+  padding: 0px 40px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  -webkit-transition: opacity 0.2s, -webkit-transform 0.2s;
+  transition: opacity 0.2s, -webkit-transform 0.2s;
+  transition: transform 0.2s, opacity 0.2s;
+  transition: transform 0.2s, opacity 0.2s, -webkit-transform 0.2s;
+}
+
+main .submission-area button:hover {
+  cursor: pointer;
+  opacity: 0.9;
+  -webkit-transform: scale(0.95, 1.05);
+          transform: scale(0.95, 1.05);
+}
+
+main .submission-area button:active {
+  -webkit-transform: scale(1.1, 0.9);
+          transform: scale(1.1, 0.9);
+}
+
+main .submission-area .primary {
+  background: #EB5160;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+}
+
+main .submission-area .secondary {
+  background: linear-gradient(-30deg, #f5f5f5, #efefef);
+  border: 1px solid #ddd;
+  font-weight: 300;
 }
 /*# sourceMappingURL=style.css.map */
