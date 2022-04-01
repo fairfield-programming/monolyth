@@ -10,7 +10,10 @@ editor.setTheme("ace/theme/monokai");
 
 languages.onchange = () => {
 
-    editor.getSession().setMode("ace/mode/" + languages.value);
+    let val = languages.value;
+    let langName = val.split("/")[0];
+
+    editor.getSession().setMode("ace/mode/" + langName);
 
 };
 
@@ -21,7 +24,7 @@ fetch('https://emkc.org/api/v2/piston/runtimes').then(response => response.json(
         const option = document.createElement('option');
 
         option.innerHTML = element.language;
-        option.value = element.language;
+        option.value = `${element.language}/${element.version}`;
 
         languages.append(option);
 
@@ -49,7 +52,9 @@ fetch(`/api/question/${id}`).then((response) => {
     title.innerHTML = data.title;
     description.innerHTML = `Earn ${data.points} Points By Completing this Problem...`;
     
-    addSection('Introduction', data.introduction, body);
+    if (data.introduction != undefined) addSection('Introduction', data.introduction, body);
+    if (data.inputOutput != undefined) addSection('Input and Output', data.inputOutput, body);
+    if (data.specialCases != undefined) addSection('Special Cases', data.specialCases, body);
 
 });
 
