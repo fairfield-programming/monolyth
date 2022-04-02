@@ -23,6 +23,7 @@
   {
     "title": "Sum of Three",
     "points": 420,
+    "emoji": "3️⃣3️⃣3️⃣",
     "introduction": "Given a list of numbers and a target number, determine if there is a set of three numbers in the list that add up to the target number. If there is, return the *product* of the three numbers. If no such set of numbers exists, return -1. Your program will receive a list of comma separated values to stdin. The first number will the the target number, with all following numbers being the list to check.",
     "tests": [
       {
@@ -37,8 +38,8 @@
     "introduction": "Compute the result of raising a number n to the m-th power without using loops or any builtin math power functions. n and m will be passed to stdin",
     "points": 260,
     "tests": [
-      {"description": "2^5", "stdin": "2 5", "stdout": "32"},
-      {"description": "3^3", "stdin": "3 3", "stdout": "27"}
+      { "description": "2^5", "stdin": "2 5", "stdout": "32" },
+      { "description": "3^3", "stdin": "3 3", "stdout": "27" }
     ]
   }
 ]
