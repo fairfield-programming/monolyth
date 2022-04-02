@@ -128,24 +128,16 @@
     "title": "Shift String",
     "introduction": "A secret spy agency has asked you to encrypt different strings by shifting them to the left or right by a given number. For each test case, there will be a string and an integer separated by a space. If the integer is negative, then shift the string to the left, and if the integer is positive, shift the string to the right. The shifting works by moving the letters of the string in the same direction, and wrapping the string to the front or end depending on if you’re shifting to the right or left respectively. For example, if the test case was “woah 1”, then you’d shift the word “woah” to the right 1 time, and wrap it around to the front, so the resulting output would be “hwoa”. If the test case was “woah -1”, then you’d shift the word to the left 1 time, resulting in “oahw”. (Note: everything will be in lowercase, so don’t worry about case sensitivity.)",
     "points": 350,
-    "emoji":"🕵️",
+    "emoji": "🕵️",
     "tests": [
-      {"description": "helloworld",
-       "stdin": "helloworld -9",
-       "stdout":"dhelloworl"
+      {
+        "description": "helloworld",
+        "stdin": "helloworld -9",
+        "stdout": "dhelloworl"
       },
-      {"description": "spy",
-        "stdin": "spy 32",
-        "stdout":"pys"
-      },
-      {"description": "secret",
-        "stdin": "secret -6",
-        "stdout":"secret"
-      },
-      {"description": "agency",
-        "stdin": "agency -7",
-        "stdout":"gencya"
-      }
+      { "description": "spy", "stdin": "spy 32", "stdout": "pys" },
+      { "description": "secret", "stdin": "secret -6", "stdout": "secret" },
+      { "description": "agency", "stdin": "agency -7", "stdout": "gencya" }
     ]
   },
   {
@@ -153,19 +145,20 @@
     "introduction": "You’ve been tasked with distributing candy to a group of kids. Each kid will get at least one piece, and the rest of the candy depends on the child’s ranking. The children with a higher ranking than their neighbor should get more candy than their neighbor. In each test case, there will be integer numbers separated by spaces, which will each correspond to a child. For each output, you should give the minimum amount of candy to meet the conditions.",
     "emoji": "🍬",
     "points": 540,
-    "tests":[
-      {"description":"test1",
-       "stdin": "0 2 0 6 6",
-       "stdout": "7"
-      },
-      {"description":"test2",
-        "stdin": "2 0 1",
-        "stdout": "5"
-       },
-       {"description":"test3",
-        "stdin": "5 1 9 10 7 8",
-        "stdout": "11"
-       }
+    "tests": [
+      { "description": "test1", "stdin": "0 2 0 6 6", "stdout": "7" },
+      { "description": "test2", "stdin": "2 0 1", "stdout": "5" },
+      { "description": "test3", "stdin": "5 1 9 10 7 8", "stdout": "11" }
+    ]
+  },
+
+  {
+    "title": "Sig Fig Multiplication",
+    "points": 1040,
+    "emoji": "📚✖️🔢",
+    "introduction": "You will be given two numbers, and your goal is to multiply them, abiding by the rules of significant figures.<ul><li>All non-zero numbers ARE significant.</li><li>Zeros between two non-zero digits ARE significant.</li><li>Leading zeros are NOT significant.</li><li>Trailing zeros to the right of the decimal ARE significant.</li><li>Trailing zeros in a whole number with the decimal shown ARE significant.</li></ul>When you multiply two numbers while taking significant figures into consideration, your answer should be rounded to the same number of significant figures as the number with the fewest significant figures. <br>The input will be given by two comma-separated numbers.",
+    "tests": [
+      { "description": "Simple Test", "stdin": "5.72,8", "stdout": "50" }
     ]
   }
 ]
