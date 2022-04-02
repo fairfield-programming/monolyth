@@ -42,12 +42,24 @@
     "points": 350,
     "emoji": "🪨📄✂️",
     "tests": [
-      {"description": "P P", "stdin": "P P", "stdout": "P"},
-      {"description": "R P", "stdin": "R P", "stdout": "P"},
-      {"description": "S P", "stdin": "S P", "stdout": "S"},
-      {"description": "P S", "stdin": "P S", "stdout": "S"},
-      {"description": "R S", "stdin": "R S", "stdout": "R"},
-      {"description": "R R", "stdin": "R R", "stdout": "R"}
+      { "description": "P P", "stdin": "P P", "stdout": "P" },
+      { "description": "R P", "stdin": "R P", "stdout": "P" },
+      { "description": "S P", "stdin": "S P", "stdout": "S" },
+      { "description": "P S", "stdin": "P S", "stdout": "S" },
+      { "description": "R S", "stdin": "R S", "stdout": "R" },
+      { "description": "R R", "stdin": "R R", "stdout": "R" }
+    ]
+  },
+  {
+    "title": "Distance between a point and a plane",
+    "emoji": "📍↔️📍",
+    "introduction": "Write a function to compute the distance between a point and a plane in 3D space. A plane can be expressed in the following form: ax + by + cz = d. Your program will receive two parameters from STDIN: the first contains the values a, b, c, and d separated by commas (for example “1,7,3,9”) and the second contains the x, y, and z coordinates of the point in question (ex. “1,1,1”).",
+    "tests": [
+      {
+        "description": "STDIN",
+        "stdin": "\"1,1,1,3\" \"7,9,2\"",
+        "stdout": "8.660254037844387\n"
+      }
     ]
   },
   {
