@@ -28,7 +28,7 @@ const startDate = new Date("April 1, 2022 11:00:00").getTime();
 const questions = JSON.parse(fs.readFileSync('./questions.json', 'utf8'));
 const leaderboard = [
     {
-        name: "Dylyifanfe aDragons"
+        name: "Dysfunctional Dragons"
     },
     {
         name: "Rye Country Day School"
@@ -40,13 +40,7 @@ const leaderboard = [
         name: "Saint Lukes"
     }
 ];
-const submissions = [
-    {
-        id: 0,
-        teamId: 0,
-        correct: true
-    }
-];
+const submissions = [];
 
 app.use((req, res, next) => {
 
