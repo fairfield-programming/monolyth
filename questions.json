@@ -30,6 +30,7 @@
     "title": "Recursive Powers",
     "introduction": "Compute the result of raising a number n to the m-th power without using loops or any builtin math power functions. n and m will be passed to stdin",
     "points": 260,
+    "emoji": "🤔🔋🔌",
     "tests": [
       { "description": "2^5", "stdin": "2 5", "stdout": "32" },
       { "description": "3^3", "stdin": "3 3", "stdout": "27" }
