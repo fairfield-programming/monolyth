@@ -34,5 +34,18 @@
       { "description": "2^5", "stdin": "2 5", "stdout": "32" },
       { "description": "3^3", "stdin": "3 3", "stdout": "27" }
     ]
+  },
+  {
+    "title": "Rock Paper Scissors",
+    "introduction": "You’re tasked with deciding the winners in a rock-paper-scissors tournament. The first line of each input file will have a number to denote the number of test cases/games. In each line, there will be two letters separated by a space; the letters will either be “R”, “P”, or “S” which represents rock, paper, and scissors respectively. The games follow the normal rules of rock-paper-scissors: rock beats scissors but loses to paper, paper beats rock but loses to scissors, and scissors beats paper but loses to rock. For each game, output the letter that wins the game, or if the game is a tie, output the letter of the tie. (Note: your outputs should be uppercase.)",
+    "points":350,
+    "tests": [
+      {"description": "P P", "stdin": "P P", "stdout": "P"},
+      {"description": "R P", "stdin": "R P", "stdout": "P"},
+      {"description": "S P", "stdin": "S P", "stdout": "S"},
+      {"description": "P S", "stdin": "P S", "stdout": "S"},
+      {"description": "R S", "stdin": "R S", "stdout": "R"},
+      {"description": "R R", "stdin": "R R", "stdout": "R"}
+    ]
   }
 ]
