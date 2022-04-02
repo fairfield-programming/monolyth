@@ -65,7 +65,7 @@ fetch(`/api/question/${id}`).then((response) => {
     
     console.log(data);
 
-    icon.innerHTML = [...data.emoji][0] || '🗿';
+    icon.innerHTML = [...(data.emoji || [ ])][0] || '🗿';
     title.innerHTML = data.title;
     description.innerHTML = `Earn ${data.points} Points By Completing this Problem...`;
     
