@@ -151,7 +151,6 @@
       { "description": "test3", "stdin": "5 1 9 10 7 8", "stdout": "11" }
     ]
   },
-
   {
     "title": "Sig Fig Multiplication",
     "points": 1040,
@@ -159,6 +158,29 @@
     "introduction": "You will be given two numbers, and your goal is to multiply them, abiding by the rules of significant figures.<ul><li>All non-zero numbers ARE significant.</li><li>Zeros between two non-zero digits ARE significant.</li><li>Leading zeros are NOT significant.</li><li>Trailing zeros to the right of the decimal ARE significant.</li><li>Trailing zeros in a whole number with the decimal shown ARE significant.</li></ul>When you multiply two numbers while taking significant figures into consideration, your answer should be rounded to the same number of significant figures as the number with the fewest significant figures. <br>The input will be given by two comma-separated numbers.",
     "tests": [
       { "description": "Simple Test", "stdin": "5.72,8", "stdout": "50" }
+    ]
+  },
+  {
+    "title": "Star Pyramid",
+    "introduction": "Your challenge is to make a pyramid out of asterisks whose height is equal to the number inputted. As an example, for an input of 5, you must print a line of one asterisk, then two, and so on until your pyramid is 5 lines tall.",
+    "points": 540,
+    "emoji": "⭐🔼",
+    "tests": [
+      {
+        "description": "3 Tall",
+        "stdin": "3",
+        "stdout": "*\n* *\n* * *"
+      },
+      {
+        "description": "4 Tall",
+        "stdin": "4",
+        "stdout": "*\n* *\n* * *\n* * * *"
+      },
+      {
+        "description": "5 Tall",
+        "stdin": "5",
+        "stdout": "*\n* *\n* * *\n* * * * *"
+      }
     ]
   }
 ]
