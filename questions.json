@@ -65,6 +65,7 @@
   {
     "title": "WordInString",
     "introduction": "You’re tasked with checking a string to see if it contains a given word. The first line of each input file will have a number to denote the number of test cases. In each line, there will be the string and the given word, separated by a space. For each test case, output “true” or “false” depending on whether the word is in or not in the string. (Note: everything will be in lowercase, so don’t worry about case sensitivity.)",
+    "emoji":"🧵",
     "points": 260,
     "tests":[
       {"description": "g in dog", "stdin": "dog g", "stdout":"true"},
