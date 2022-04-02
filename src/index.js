@@ -28,7 +28,7 @@ const startDate = new Date("April 1, 2022 11:00:00").getTime();
 const questions = JSON.parse(fs.readFileSync('./questions.json', 'utf8'));
 const leaderboard = [
     {
-        name: "Dylyifanfe aDragons"
+        name: "Dysfunctional Dragons"
     },
     {
         name: "Rye Country Day School"
@@ -40,13 +40,7 @@ const leaderboard = [
         name: "Saint Lukes"
     }
 ];
-const submissions = [
-    {
-        id: 0,
-        teamId: 0,
-        correct: true
-    }
-];
+const submissions = [];
 
 app.use((req, res, next) => {
 
@@ -198,19 +192,19 @@ app.post('/api/question/:id/test', async (req, res) => {
         }).then(response => response.json());
 
         let cleanExpected = testData.stdout.trim().replace(/\r\n/g, '\n').toUpperCase();
-        let cleanStdout = resultsData.run.stdout.trim().replace(/\r\n/g, '\n').toUpperCase();
+        let cleanStdout = (resultsData.run || { stdout: "" }).stdout.trim().replace(/\r\n/g, '\n').toUpperCase();
 
         let testCorrect = true;
 
         if (cleanStdout != cleanExpected) testCorrect = false;
-        if (resultsData.run.stderr != "") testCorrect = false;
+        if ((resultsData.run || { stderr: "" }).stderr != "") testCorrect = false;
         
         if (!testCorrect) correct = false;
 
         testResults.push({
             description: testData.description,
-            stdout: resultsData.run.stdout,
-            stderr: resultsData.run.stderr,
+            stdout: (resultsData.run || { stdout: "" }).stdout,
+            stderr: (resultsData.run || { stderr: "" }).stderr,
             expected: testData.stdout,
             correct: testCorrect
         });
