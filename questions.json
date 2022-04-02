@@ -3,12 +3,21 @@
     "title": "FizzBuzz",
     "points": 240,
     "introduction": "The most classic interview programming question: FizzBuzz. It's fairly straightforward, but surprisingly tough for even the most well-versed programmers. The challenge is simple: output all integers from 1 to 100 (inclusive), each on a new line. However, if the number is evenly divisible by 3, output \"Fizz\" instead of that number; if it's divisible by 5, output \"Buzz\"; if it's divisible by 3 and 5, output \"FizzBuzz.\" (Note: it's important that your outputs follow PascalCase, where the first letter of each compound word is capitalized; so not \"fizzbuzz,\" but \"FizzBuzz\".)",
-    "emoji": "🍹🐝"
+    "emoji": "🍹🐝",
+    "code": "for i in range(1,101):\r\n\toutput = \"\"\r\n\tif (i%3==0 and i%5==0):\r\n\t\toutput = \"FizzBuzz\"\r\n\telif (i%3==0):\r\n\t\toutput = \"Fizz\"\r\n\telif (i%5==0):\r\n\t\toutput = \"Buzz\"\r\n\telse:\r\n\t\toutput = i\r\n\tprint(output)",
+    "tests": [
+      {
+        "description": "Outputs Correctly When Run without Stdin",
+        "stdin": "",
+        "stdout": "1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\nBuzz\n11\nFizz\n13\n14\nFizzBuzz\n16\n17\nFizz\n19\nBuzz\nFizz\n22\n23\nFizz\nBuzz\n26\nFizz\n28\n29\nFizzBuzz\n31\n32\nFizz\n34\nBuzz\nFizz\n37\n38\nFizz\nBuzz\n41\nFizz\n43\n44\nFizzBuzz\n46\n47\nFizz\n49\nBuzz\nFizz\n52\n53\nFizz\nBuzz\n56\nFizz\n58\n59\nFizzBuzz\n61\n62\nFizz\n64\nBuzz\nFizz\n67\n68\nFizz\nBuzz\n71\nFizz\n73\n74\nFizzBuzz\n76\n77\nFizz\n79\nBuzz\nFizz\n82\n83\nFizz\nBuzz\n86\nFizz\n88\n89\nFizzBuzz\n91\n92\nFizz\n94\nBuzz\nFizz\n97\n98\nFizz\nBuzz\n"
+      }
+    ]
   },
   {
     "title": "Rock Paper Scissors",
     "points": 340,
-    "introduction": "You’re tasked with deciding the winners in a rock-paper-scissors tournament. The first line of each input file will have a number to denote the number of test cases/games. In each line, there will be two letters separated by a space; the letters will either be “R”, “P”, or “S” which represents rock, paper, and scissors respectively. The games follow the normal rules of rock-paper-scissors: rock beats scissors but loses to paper, paper beats rock but loses to scissors, and scissors beats paper but loses to rock. For each game, output the letter that wins the game, or if the game is a tie, output the letter of the tie. (Note: your outputs should be uppercase.)",
-    "emoji": "🗿📄✂"
+    "introduction": "You're tasked with deciding the winners in a rock-paper-scissors tournament. The first line of each input file will have a number to denote the number of test cases/games. In each line, there will be two letters separated by a space; the letters will either be “R”, “P”, or “S” which represents rock, paper, and scissors respectively. The games follow the normal rules of rock-paper-scissors: rock beats scissors but loses to paper, paper beats rock but loses to scissors, and scissors beats paper but loses to rock. For each game, output the letter that wins the game, or if the game is a tie, output the letter of the tie. (Note: your outputs should be uppercase.)",
+    "emoji": "🗿📄✂",
+    "tests": [{}]
   }
 ]

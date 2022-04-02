@@ -14,18 +14,21 @@
 
 // START TIME: 10:05 - Added Question Frontend
 
-const path = require('path');
-const express = require('express')
+import path from 'path';
+import express from 'express';
 const app = express()
 const port = process.env.PORT || 8080
-const fs = require('fs');
+import fs from 'fs';
 
-const startDate = new Date("");
+import fetch from 'node-fetch'
+globalThis.fetch = fetch
+
+const startDate = new Date("April 1, 2022 11:00:00").getTime();
 
 const questions = JSON.parse(fs.readFileSync('./questions.json', 'utf8'));
 const leaderboard = [
     {
-        name: "Greens Farms Academy"
+        name: "Dylyifanfe aDragons"
     },
     {
         name: "Rye Country Day School"
@@ -42,11 +45,6 @@ const submissions = [
         id: 0,
         teamId: 0,
         correct: true
-    },
-    {
-        id: 1,
-        teamId: 1,
-        correct: true
     }
 ];
 
@@ -59,20 +57,28 @@ app.use((req, res, next) => {
 
     if (seconds > 0) {
 
-        if (req.path == "/res/fpa.svg") return res.sendFile(path.join(__dirname, "../public/res/fpa.svg"));
+        if (req.path == "/res/fpa.svg") return res.sendFile(path.join(process.cwd(), "./public/res/fpa.svg"));
 
-        if (req.path == "/style.css") return res.sendFile(path.join(__dirname, "../public/wait/style.css"));
-        if (req.path == "/script.js") return res.sendFile(path.join(__dirname, "../public/wait/script.js"));
+        if (req.path == "/style.css") return res.sendFile(path.join(process.cwd(), "./public/wait/style.css"));
+        if (req.path == "/script.js") return res.sendFile(path.join(process.cwd(), "./public/wait/script.js"));
 
-        return res.sendFile(path.join(__dirname, "../public/wait/index.html"));
+        if (req.path == "/") return res.sendFile(path.join(process.cwd(), "./public/wait/index.html"));
+
+        return res.writeHead(302, {
+            'Location': '/'
+        }).send();
 
     }
 
     return next();
 
 });
+
+import bodyParser from 'body-parser';
+import { start } from 'repl';
+
 app.use(express.static('public'))
-app.use(require('body-parser').json())
+app.use(bodyParser.json())
 
 app.get('/api/question', (req, res) => {
 
@@ -145,7 +151,101 @@ app.get('/api/scores', (req, res) => {
 
 });
 
-app.get('/api/question/:id/submit', (req, res) => {
+app.post('/api/question/:id/test', async (req, res) => {
+
+    if (req.params.id == undefined) return res.status(400).send("Not All Parameters Provided.");
+
+    let item = questions[req.params.id];
+
+    if (item == null || item == undefined) return res.status(404).send("Question Not Found");
+
+    let correct = true;
+
+    if (req.body.language == undefined) return res.status(400).json({ error: "Not All Parameters Provided." });
+
+    let languageParts = req.body.language.split("/");
+    let language = languageParts[0] || "bash";
+    let version = languageParts[1] || "5.1.0";
+
+    if (req.body.code == undefined) correct = false;
+
+    let testResults = [];
+
+    for (const test in item.tests) {
+
+        const testData = item.tests[test];
+
+        let body = {
+            language,
+            version,
+            files: [
+                {
+                    // name: "test",
+                    content: req.body.code
+                }
+            ],
+            stdin: testData.stdin,
+            args: [],
+            compile_timeout: 10000,
+            run_timeout: 3000,
+            compile_memory_limit: -1,
+            run_memory_limit: -1
+        };
+        
+        const resultsData = await fetch("https://emkc.org/api/v2/piston/execute", {
+            method: "POST",
+            body: JSON.stringify(body)
+        }).then(response => response.json());
+
+        let cleanExpected = testData.stdout.trim().replace(/\r\n/g, '\n').toUpperCase();
+        let cleanStdout = resultsData.run.stdout.trim().replace(/\r\n/g, '\n').toUpperCase();
+
+        let testCorrect = true;
+
+        if (cleanStdout != cleanExpected) testCorrect = false;
+        if (resultsData.run.stderr != "") testCorrect = false;
+        
+        if (!testCorrect) correct = false;
+
+        testResults.push({
+            description: testData.description,
+            stdout: resultsData.run.stdout,
+            stderr: resultsData.run.stderr,
+            expected: testData.stdout,
+            correct: testCorrect
+        });
+
+    }
+
+    // add the submission to the database
+    res.json({
+        language,
+        version,
+        code: req.body.code,
+        correct,
+        tests: testResults
+    });
+
+});
+
+app.get('/api/teams/', (req, res) => {
+
+    let output = [];
+
+    leaderboard.forEach((item, i) => {
+
+        output.push({
+            id: i,
+            name: item.name
+        });
+
+    });
+
+    return res.json(output);
+
+})
+
+app.post('/api/question/:id/submit', async (req, res) => {
 
     if (req.params.id == undefined) return res.status(400).send("Not All Parameters Provided.");
     if (req.query.team == undefined) return res.status(400).send("Not All Parameters Provided.");
@@ -156,29 +256,79 @@ app.get('/api/question/:id/submit', (req, res) => {
     if (item == null || item == undefined) return res.status(404).send("Question Not Found");
     if (team == null || team == undefined) return res.status(404).send("Team Not Found");
 
+    // Verify Code
     let correct = true;
-    
-    for (const item in submissions) {
-    
-        console.log(submissions[item]);
 
-        if (submissions[item].id == req.params.id && submissions[item].teamId == req.query.team && submissions[item].correct) { 
-            
-            return res.status(409).json({ error: "Already Submitted a Correct Answer to this Problem." });
-            
-        }
+    if (req.body.language == undefined) correct = false;
+    let languageParts = req.body.language.split("/");
+    let language = languageParts[0] || "bash";
+    let version = languageParts[1] || "5.1.0";
+
+    if (req.body.code == undefined) correct = false;
+
+    let testResults = [];
+
+    for (const test in item.tests) {
+
+        const testData = item.tests[test];
+
+        let body = {
+            language,
+            version,
+            files: [
+                {
+                    // name: "test",
+                    content: req.body.code
+                }
+            ],
+            stdin: testData.stdin,
+            args: [],
+            compile_timeout: 10000,
+            run_timeout: 3000,
+            compile_memory_limit: -1,
+            run_memory_limit: -1
+        };
         
+        const resultsData = await fetch("https://emkc.org/api/v2/piston/execute", {
+            method: "POST",
+            body: JSON.stringify(body)
+        }).then(response => response.json());
+
+        let cleanExpected = testData.stdout.trim().replace(/\r\n/g, '\n').toUpperCase();
+        let cleanStdout = resultsData.run.stdout.trim().replace(/\r\n/g, '\n').toUpperCase();
+
+        let testCorrect = true;
+
+        if (cleanStdout != cleanExpected) testCorrect = false;
+        if (resultsData.run.stderr != "") testCorrect = false;
+        
+        if (!testCorrect) correct = false;
+
+        testResults.push({
+            description: testData.description,
+            stdout: resultsData.run.stdout,
+            stderr: resultsData.run.stderr,
+            expected: testData.stdout,
+            correct: testCorrect
+        });
+
     }
 
     submissions.push({
         id: req.params.id,
         teamId: req.query.team,
-        correct
+        correct,
+        language,
+        version,
+        code: req.body.code
     });
 
-    // add the submission to the database
     res.json({
-        correct
+        language,
+        version,
+        code: req.body.code,
+        correct,
+        tests: testResults
     });
 
 });

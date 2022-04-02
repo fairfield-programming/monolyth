@@ -38,11 +38,154 @@ header .spacer a:hover {
   background: #f5f5f5;
 }
 
+.success {
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 100vh;
+  bottom: 0px;
+  background: #00a07f;
+  z-index: 200;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transition: top 0.2s, opacity 0.2s;
+  transition: top 0.2s, opacity 0.2s;
+  opacity: 0;
+}
+
+.success h2 {
+  margin: 40px;
+  color: #ffffff;
+  font-weight: 100;
+  font-size: 32px;
+}
+
+.success a {
+  margin: 40px;
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 14px;
+  text-decoration: none;
+  border-bottom: 1px solid #ffffff;
+}
+
+.error {
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 100vh;
+  bottom: 0px;
+  background: #EE6055;
+  z-index: 200;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transition: top 0.2s, opacity 0.2s;
+  transition: top 0.2s, opacity 0.2s;
+  opacity: 0;
+}
+
+.error h2 {
+  margin: 40px;
+  color: #ffffff;
+  font-weight: 100;
+  font-size: 32px;
+}
+
+.error a {
+  margin: 40px;
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 14px;
+  text-decoration: none;
+  border-bottom: 1px solid #ffffff;
+}
+
 main {
   max-width: 800px;
   margin: 0px auto;
   margin-top: 80px;
   padding: 0px 25px;
+}
+
+main .team-picker {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  font-family: sans-serif;
+  font-weight: 100;
+  font-size: 18px;
+}
+
+main .team-select-button {
+  width: 100%;
+  padding: 10px;
+  background: #EB5160;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-family: sans-serif;
+  font-weight: 100;
+  font-size: 14px;
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
+}
+
+main .team-select-button:hover {
+  cursor: pointer;
+  -webkit-transform: scale(0.95, 1.05);
+          transform: scale(0.95, 1.05);
+}
+
+main .team-select-button:active {
+  -webkit-transform: scale(1.05, 0.95);
+          transform: scale(1.05, 0.95);
+}
+
+main .question-tests {
+  background: #f5f5f5;
+  border-radius: 5px;
+}
+
+main .question-tests details {
+  padding: 0px;
+}
+
+main .question-tests details summary {
+  padding: 15px;
+  width: 100%;
+}
+
+main .question-tests td {
+  padding: 10px;
+  font-family: monospace;
+  font-weight: 100;
+  font-size: 10px;
+  table-layout: fixed;
 }
 
 main .masthead {

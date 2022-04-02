@@ -42,11 +42,22 @@
       </div>
       <div id="editor"></div>
       <div class="submission-area">
-        <button class="secondary">Run + Test</button>
-        <button class="primary">Submit</button>
+        <button onclick="testAnswer()" class="secondary">Run + Test</button>
+        <button onclick="submitAnswer()" class="primary">Submit</button>
+      </div>
+      <div class="question-tests">
+        <table id="testResults"></table>
       </div>
       <div class="spacer"></div>
     </main>
+    <div class="success" id="success">
+      <h2>Congrats- You Got it Right!</h2>
+      <a href="/question">Check Out Other Questions</a>
+    </div>
+    <div class="error" id="error">
+      <h2>Sorry- That Solution Didn't Work.</h2>
+      <a onclick="closeProblemScreen()">Try a Different Solution</a>
+    </div>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js"
       type="text/javascript"
