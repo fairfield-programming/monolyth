@@ -21,14 +21,14 @@
     "tests": [
       {
         "description": "Works (input via STDIN)",
-        "stdin": "\"2020,1388,508,1855,1249,1405,1618,1286,1485,1827,1188,1369,1977,910,1398,1912,1575,1713,1771,1506,1056,1890,1065,1591,1438,1155,1275,1622,972,1918,1959,1860,1396,1832,1562,1935,1687,1344,1709,1498,1875,1467,1557,1166,1090,1363,1754,987,1548,1334,1315,1300,1043,1417,1040,1955,1440,1635,1519,1305,552,1776,1723,1109,1914,981,1886,1607,1639,1582,1444,1627,1157,2008,1554,1781,1847,1415,1915,1416,1431,1579,1193,1921,1971,1360,1631,1972,1988,1813,1378,1505,1973,1585,1091,1853,1531,731,1546,1895,1348,1913,1387,1885,1204,1499,1975,1664,1828,1616,1841,1129,137,1676,1694,1928,1354,1814,1228,1588,1642,1261,1446,1903,2003,1751,1083,1829,140,1599,1968,1725,1987,1931,1810,1628,2009,1159,1142,1331,1859,1111,1637,1801,1376,1902,1345,1307,1570,1990,1784,1524,1997,1098,1967,1442,1927,1251,1753,1194,1648,1483,1609,1716,1583,1128,1514,1738,1881,1502,1120,1112,433,1033,1208,1982,1544,1169,1306,1690,1590,1938,1177,1819,1568,1666,1682,1844,1783,1774,1688,1925,1471,1203,2007,1769,1323,1370,1689,1268,1868\"",
+        "stdin": "2020,1388,508,1855,1249,1405,1618,1286,1485,1827,1188,1369,1977,910,1398,1912,1575,1713,1771,1506,1056,1890,1065,1591,1438,1155,1275,1622,972,1918,1959,1860,1396,1832,1562,1935,1687,1344,1709,1498,1875,1467,1557,1166,1090,1363,1754,987,1548,1334,1315,1300,1043,1417,1040,1955,1440,1635,1519,1305,552,1776,1723,1109,1914,981,1886,1607,1639,1582,1444,1627,1157,2008,1554,1781,1847,1415,1915,1416,1431,1579,1193,1921,1971,1360,1631,1972,1988,1813,1378,1505,1973,1585,1091,1853,1531,731,1546,1895,1348,1913,1387,1885,1204,1499,1975,1664,1828,1616,1841,1129,137,1676,1694,1928,1354,1814,1228,1588,1642,1261,1446,1903,2003,1751,1083,1829,140,1599,1968,1725,1987,1931,1810,1628,2009,1159,1142,1331,1859,1111,1637,1801,1376,1902,1345,1307,1570,1990,1784,1524,1997,1098,1967,1442,1927,1251,1753,1194,1648,1483,1609,1716,1583,1128,1514,1738,1881,1502,1120,1112,433,1033,1208,1982,1544,1169,1306,1690,1590,1938,1177,1819,1568,1666,1682,1844,1783,1774,1688,1925,1471,1203,2007,1769,1323,1370,1689,1268,1868",
         "stdout": "100655544"
       }
     ]
   },
   {
     "title": "Recursive Powers",
-    "introduction": "Compute the result of raising a number n to the m-th power without using loops or any builtin math power functions. n and m will be passed to stdin",
+    "introduction": "Compute the result of raising a number n to the m-th power without using loops or any builtin math power functions. n and m will be passed to stdin in a string separated by a space",
     "points": 260,
     "emoji": "🤔🔋🔌",
     "tests": [
@@ -53,12 +53,12 @@
   {
     "title": "Distance between a point and a plane",
     "emoji": "📍↔️📍",
-    "points": 560,
-    "introduction": "Write a function to compute the distance between a point and a plane in 3D space. A plane can be expressed in the following form: ax + by + cz = d. Your program will receive two parameters from STDIN: the first contains the values a, b, c, and d separated by commas (for example “1,7,3,9”) and the second contains the x, y, and z coordinates of the point in question (ex. “1,1,1”).",
+    "introduction": "Write a function to compute the distance between a point and a plane in 3D space. A plane can be expressed in the following form: ax + by + cz = d. Your program will receive a string of the following form from STDIN: “a,b,c,d;x,y,z” a, b, c, and d refer to the coefficients in the equation for a plane. x, y, and z are the coordinates of the point in question.",
+    "points": 640,
     "tests": [
       {
         "description": "STDIN",
-        "stdin": "\"1,1,1,3\" \"7,9,2\"",
+        "stdin": "1,1,1,3;7,9,2",
         "stdout": "8.660254037844387\n"
       }
     ]
@@ -78,7 +78,7 @@
     ]
   },
   {
-    "title": "WordInString",
+    "title": "Word In String",
     "introduction": "You’re tasked with checking a string to see if it contains a given word. The first line of each input file will have a number to denote the number of test cases. In each line, there will be the string and the given word, separated by a space. For each test case, output “true” or “false” depending on whether the word is in or not in the string. (Note: everything will be in lowercase, so don’t worry about case sensitivity.)",
     "emoji": "🧵",
     "points": 260,
@@ -100,14 +100,27 @@
     "emoji": "1️⃣2️⃣3️⃣",
     "tests": [
       {
-        "description": "test1",
+        "description": "Sort Normal Numbers",
         "stdin": "4 65 232 1234 23 76 2 4 6 9 12 34 53 9 16 7235 123456765 12311 98987898 676 34 22 0",
         "stdout": "0 2 4 4 6 9 9 12 16 22 23 34 34 53 65 76 232 676 1234 7235 12311 98987898 123456765"
       },
       {
-        "description": "test2",
+        "description": "Negatives?!?",
         "stdin": "9 69 2 -420",
-        "stdout": "-420 2 9 69s"
+        "stdout": "-420 2 9 69"
+      }
+    ]
+  },
+  {
+    "title": "String Sorter",
+    "introduction": "There’s a problem at a word factory: the words in their lists keep coming out of order and it’s your job to fix it! For each input file/test case, there will be two lines: the first line will have a number to denote how long the list will be, and the second line will have the non-alphabetized words to sort, separated by spaces. For each input file/test case, output the correct alphabetical order of the words on the same line with a space separating them. Like in normal alphabetical order, if a position is reached where one word has more letters than another does, but they are the same until that point, then the smaller word goes first; an example would be “app” going before “apple”. It’s also important to remember that uppercase letters go before lowercase letters; an example would be “App” going before “app”. (Note: if there are duplicate words in the list, put them one after another; ex. bat app cat app → app app bat cat.)",
+    "points": 520,
+    "emoji": "🎻〽️",
+    "tests": [
+      {
+        "description": "Do you Wonder? (with capitals)",
+        "stdin": "7\r\napple glad wonder batty Wonder money epic",
+        "stdout": "apple batty epic glad money Wonder wonder "
       }
     ]
   },
@@ -115,24 +128,16 @@
     "title": "Shift String",
     "introduction": "A secret spy agency has asked you to encrypt different strings by shifting them to the left or right by a given number. For each test case, there will be a string and an integer separated by a space. If the integer is negative, then shift the string to the left, and if the integer is positive, shift the string to the right. The shifting works by moving the letters of the string in the same direction, and wrapping the string to the front or end depending on if you’re shifting to the right or left respectively. For example, if the test case was “woah 1”, then you’d shift the word “woah” to the right 1 time, and wrap it around to the front, so the resulting output would be “hwoa”. If the test case was “woah -1”, then you’d shift the word to the left 1 time, resulting in “oahw”. (Note: everything will be in lowercase, so don’t worry about case sensitivity.)",
     "points": 350,
-    "emoji":"🕵️",
+    "emoji": "🕵️",
     "tests": [
-      {"description": "helloworld",
-       "stdin": "helloworld -9",
-       "stdout":"dhelloworl"
+      {
+        "description": "helloworld",
+        "stdin": "helloworld -9",
+        "stdout": "dhelloworl"
       },
-      {"description": "spy",
-        "stdin": "spy 32",
-        "stdout":"pys"
-      },
-      {"description": "secret",
-        "stdin": "secret -6",
-        "stdout":"secret"
-      },
-      {"description": "agency",
-        "stdin": "agency -7",
-        "stdout":"gencya"
-      }
+      { "description": "spy", "stdin": "spy 32", "stdout": "pys" },
+      { "description": "secret", "stdin": "secret -6", "stdout": "secret" },
+      { "description": "agency", "stdin": "agency -7", "stdout": "gencya" }
     ]
   },
   {
@@ -140,19 +145,42 @@
     "introduction": "You’ve been tasked with distributing candy to a group of kids. Each kid will get at least one piece, and the rest of the candy depends on the child’s ranking. The children with a higher ranking than their neighbor should get more candy than their neighbor. In each test case, there will be integer numbers separated by spaces, which will each correspond to a child. For each output, you should give the minimum amount of candy to meet the conditions.",
     "emoji": "🍬",
     "points": 540,
-    "tests":[
-      {"description":"test1",
-       "stdin": "0 2 0 6 6",
-       "stdout": "7"
+    "tests": [
+      { "description": "test1", "stdin": "0 2 0 6 6", "stdout": "7" },
+      { "description": "test2", "stdin": "2 0 1", "stdout": "5" },
+      { "description": "test3", "stdin": "5 1 9 10 7 8", "stdout": "11" }
+    ]
+  },
+  {
+    "title": "Sig Fig Multiplication",
+    "points": 1040,
+    "emoji": "📚✖️🔢",
+    "introduction": "You will be given two numbers, and your goal is to multiply them, abiding by the rules of significant figures.<ul><li>All non-zero numbers ARE significant.</li><li>Zeros between two non-zero digits ARE significant.</li><li>Leading zeros are NOT significant.</li><li>Trailing zeros to the right of the decimal ARE significant.</li><li>Trailing zeros in a whole number with the decimal shown ARE significant.</li></ul>When you multiply two numbers while taking significant figures into consideration, your answer should be rounded to the same number of significant figures as the number with the fewest significant figures. <br>The input will be given by two comma-separated numbers.",
+    "tests": [
+      { "description": "Simple Test", "stdin": "5.72,8", "stdout": "50" }
+    ]
+  },
+  {
+    "title": "Star Pyramid",
+    "introduction": "Your challenge is to make a pyramid out of asterisks whose height is equal to the number inputted. As an example, for an input of 5, you must print a line of one asterisk, then two, and so on until your pyramid is 5 lines tall.",
+    "points": 540,
+    "emoji": "⭐🔼",
+    "tests": [
+      {
+        "description": "3 Tall",
+        "stdin": "3",
+        "stdout": "*\n* *\n* * *"
       },
-      {"description":"test2",
-        "stdin": "2 0 1",
-        "stdout": "5"
-       },
-       {"description":"test3",
-        "stdin": "5 1 9 10 7 8",
-        "stdout": "11"
-       }
+      {
+        "description": "4 Tall",
+        "stdin": "4",
+        "stdout": "*\n* *\n* * *\n* * * *"
+      },
+      {
+        "description": "5 Tall",
+        "stdin": "5",
+        "stdout": "*\n* *\n* * *\n* * * * *"
+      }
     ]
   },
   {
