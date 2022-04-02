@@ -14,13 +14,6 @@
     ]
   },
   {
-    "title": "Rock Paper Scissors",
-    "points": 340,
-    "introduction": "You're tasked with deciding the winners in a rock-paper-scissors tournament. The first line of each input file will have a number to denote the number of test cases/games. In each line, there will be two letters separated by a space; the letters will either be “R”, “P”, or “S” which represents rock, paper, and scissors respectively. The games follow the normal rules of rock-paper-scissors: rock beats scissors but loses to paper, paper beats rock but loses to scissors, and scissors beats paper but loses to rock. For each game, output the letter that wins the game, or if the game is a tie, output the letter of the tie. (Note: your outputs should be uppercase.)",
-    "emoji": "🗿📄✂",
-    "tests": [{}]
-  },
-  {
     "title": "Sum of Three",
     "points": 420,
     "emoji": "3️⃣3️⃣3️⃣",
