@@ -95,7 +95,7 @@
   },
   {
     "title": "Number Sorter",
-    "introduction": "There’s a problem at a number factory: the numbers in their lists keep coming out of order and it’s your job to fix it! For each input file/test case, there will be two lines: the first line will have a number to denote how long the list will be, and the second line will have the unordered integers to sort, separated by spaces. For each input file/test case, output the correct order of numbers on the same line with a space separating them. (Note: if there are duplicate numbers in the list, put them one after another; ex. 1 5 3 5 → 1 3 5 5.)",
+    "introduction": "There’s a problem at a number factory: the numbers in their lists keep coming out of order and it’s your job to fix it! For each input file/test case, it will have the unordered integers to sort, separated by spaces. For each input file/test case, output the correct order of numbers on the same line with a space separating them. (Note: if there are duplicate numbers in the list, put them one after another; ex. 1 5 3 5 → 1 3 5 5.)",
     "points": 350,
     "emoji": "1️⃣2️⃣3️⃣",
     "tests": [
@@ -122,6 +122,50 @@
         "stdin": "7\r\napple glad wonder batty Wonder money epic",
         "stdout": "apple batty epic glad money Wonder wonder "
       }
+    ]
+  },
+  {
+    "title": "Shift String",
+    "introduction": "A secret spy agency has asked you to encrypt different strings by shifting them to the left or right by a given number. For each test case, there will be a string and an integer separated by a space. If the integer is negative, then shift the string to the left, and if the integer is positive, shift the string to the right. The shifting works by moving the letters of the string in the same direction, and wrapping the string to the front or end depending on if you’re shifting to the right or left respectively. For example, if the test case was “woah 1”, then you’d shift the word “woah” to the right 1 time, and wrap it around to the front, so the resulting output would be “hwoa”. If the test case was “woah -1”, then you’d shift the word to the left 1 time, resulting in “oahw”. (Note: everything will be in lowercase, so don’t worry about case sensitivity.)",
+    "points": 350,
+    "emoji":"🕵️",
+    "tests": [
+      {"description": "helloworld",
+       "stdin": "helloworld -9",
+       "stdout":"dhelloworl"
+      },
+      {"description": "spy",
+        "stdin": "spy 32",
+        "stdout":"pys"
+      },
+      {"description": "secret",
+        "stdin": "secret -6",
+        "stdout":"secret"
+      },
+      {"description": "agency",
+        "stdin": "agency -7",
+        "stdout":"gencya"
+      }
+    ]
+  },
+  {
+    "title": "Candy",
+    "introduction": "You’ve been tasked with distributing candy to a group of kids. Each kid will get at least one piece, and the rest of the candy depends on the child’s ranking. The children with a higher ranking than their neighbor should get more candy than their neighbor. In each test case, there will be integer numbers separated by spaces, which will each correspond to a child. For each output, you should give the minimum amount of candy to meet the conditions.",
+    "emoji": "🍬",
+    "points": 540,
+    "tests":[
+      {"description":"test1",
+       "stdin": "0 2 0 6 6",
+       "stdout": "7"
+      },
+      {"description":"test2",
+        "stdin": "2 0 1",
+        "stdout": "5"
+       },
+       {"description":"test3",
+        "stdin": "5 1 9 10 7 8",
+        "stdout": "11"
+       }
     ]
   }
 ]
